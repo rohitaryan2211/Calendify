@@ -3,16 +3,17 @@ module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "*",
   ],
   mode: "jit",
   theme: {
     extend: {
       colors: {
-        primary: "#00040f",
+        primary: "#958df8",
         secondary: "#00f6ff",
       },
       fontFamily: {
-        // poppins: ["Poppins", "sans-serif"],
+        barlow: ["Barlow", "sans-serif"],
       }
     },
     screens: {
