@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "#958df8",
-        secondary: "#00f6ff",
+        secondary: "#8c52ff",
       },
       fontFamily: {
         barlow: ["Barlow", "sans-serif"],

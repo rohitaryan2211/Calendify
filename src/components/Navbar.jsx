@@ -1,21 +1,93 @@
 import React from 'react'
 import { useState } from 'react'
-import {logo2} from '../assets';
-import { navLinks } from '../constants';
+import {logo2, close, hammenu, usersol} from '../assets';
+import { navLinks, profileLinks } from '../constants';
 
 const Navbar = () => {
+
+  const [toggle, setToggle] = useState(false);
+  const [profile, setProfile] = useState(false);
+
   return (
-    <nav className='w-full flex py-6 justify-between items-center navbar'>
-      <img src={logo2} alt="calendify" className="w-[200px]"/>
+    <nav className='w-full flex py-5 justify-between items-center navbar'>
+      <a href='#home'>
+        <img src={logo2} alt="calendify" className="sm:flex hidden w-[200px]" />
+      </a>
+      
       <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
         {navLinks.map((nav, index) => (
-          <li key={nav.id} className={`font-barlow font-normal cursor-pointer text-white text-[20px] ${index === navLinks.length-1 ? 'mr-0' : 'mr-5'} ml-5`}>
+          <li key={nav.id} className={`font-barlow font-normal cursor-pointer text-white text-[20px] ${index === navLinks.length ? 'mr-0' : 'mr-5'} ml-5`}>
             <a href={`#${nav.id}`}>
               {nav.title}
             </a>
           </li>
         ))}
       </ul>
+      <img 
+          src={usersol} alt='menu' className= 'sm:flex hidden object-contain w-[28px] h-[28px] ml-4'
+          onClick={() => setProfile((prev) => (!prev))}
+        />
+
+        <div className={`${profile ? 'flex' : 'hidden'} p-6 bg-secondary absolute top-[78px] right-0 mx-0 my-2 min-w[140px] rounded-none sidebar`} >
+            
+          <ul className='list-none flex justify-end items-center flex-1 flex-col'>
+            {profileLinks.map((nav, index) => (
+              <li key={nav.id} className={`font-barlow font-normal cursor-pointer text-white text-[20px] ${index === profileLinks.length-1 ? 'mr-0' : 'mb-4'} `}>
+                <a href={`#${nav.id}`}>
+                  {nav.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+  
+        </div>
+
+      {/* Mobile View */}
+      <div className='sm:hidden flex flex-1 justify-between items-center'>
+          
+        <img 
+          src={toggle ? close : hammenu} alt='menu' className='object-contain w-[28px] h-[28px]'
+          onClick={() => setToggle((prev) => (!prev))}
+        />
+
+        <div className={`${toggle ? 'flex' : 'hidden'} p-6 bg-secondary absolute top-[78px] left-0 mx-0 my-2 min-w[140px] rounded-none sidebar`} >
+            
+          <ul className='list-none flex justify-end items-center flex-1 flex-col'>
+            {navLinks.map((nav, index) => (
+              <li key={nav.id} className={`font-barlow font-normal cursor-pointer text-white text-[20px] ${index === navLinks.length-1 ? 'mr-0' : 'mb-4'}`}>
+                <a href={`#${nav.id}`}>
+                  {nav.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+        </div>
+
+        <a href='#home'>
+          <img src={logo2} alt="calendify" className="flex justify-center w-[200px]"/>
+        </a>
+        
+        <img 
+          src={usersol} alt='menu' className= 'object-contain w-[28px] h-[28px]'
+          onClick={() => setProfile((prev) => (!prev))}
+        />
+
+        <div className={`${profile ? 'flex' : 'hidden'} p-6 bg-secondary absolute top-[78px] right-0 mx-0 my-2 min-w[140px] rounded-none sidebar`} >
+            
+          <ul className='list-none flex justify-end items-center flex-1 flex-col'>
+            {profileLinks.map((nav, index) => (
+              <li key={nav.id} className={`font-barlow font-normal cursor-pointer text-white text-[20px] ${index === profileLinks.length-1 ? 'mr-0' : 'mb-4'} `}>
+                <a href={`#${nav.id}`}>
+                  {nav.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+  
+        </div>
+
+      </div>
     </nav>
   )
 }
