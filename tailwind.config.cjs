@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         primary: "#958df8",
         secondary: "#8c52ff",
+        title_gray: "#dfdfdf",
       },
       fontFamily: {
         barlow: ["Barlow", "sans-serif"],

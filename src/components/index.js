@@ -10,6 +10,9 @@ import Availability from "./Availability";
 import Logout from "./Logout";
 import Preferences from "./Preferences";
 import Profile from "./Profile";
+import DashboardSchedule from "./DashboardSchedule";
+import DashboardCalendar from "./DashboardCalendar";
+import ScheduleCard from "./ScheduleCard";
 
 export{
     Calendar,
@@ -24,4 +27,8 @@ export{
     Logout,
     Preferences,
     Profile,
+    DashboardSchedule,
+    DashboardCalendar,
+    ScheduleCard,
+    
 };

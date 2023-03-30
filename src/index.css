@@ -24,6 +24,29 @@
   scroll-behavior: smooth;
 }
 
+.tabs button:disabled {
+    background: #c2c2c2;
+}
+
+.tabs {
+  display: flex-start;
+}
+
+.content {
+  padding: 50px 80px;
+  background-color: rgb(255, 255, 255);
+  /* line-height: 30px; */
+  /* font-size: 16px; */
+  /* text-align: justify; */
+}
+
+.home_title{
+  color: black;
+  font-size: large;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;
