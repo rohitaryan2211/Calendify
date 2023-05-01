@@ -1,33 +1,37 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import {login} from '../assets'
 
 
 const Signin = () => {
   
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [tag, setTag] = useState('student');
+
+    const [data, setData]=useState({
+        firstName:'',
+        lastName:'',
+        email:'',
+        password:'',
+        type:'student',
+        
+    })
+
+    useEffect(()=>{
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        };
+        fetch('http://localhost:8080/api/v1/auth/register', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data));
+    },[data])
+
+    const handleChange=(event, property)=>{
+        setData({...data, [property]:event.target.value});
+    }
     
-    const handleUsernameChange = (event) => {
-        setUsername(event.target.value);
-    };
-    
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
-    
-    const handleConfirmPasswordChange = (event) => {
-        setConfirmPassword(event.target.value);
-    };
-    
-    const handleTagChange = (event) => {
-        setTag(event.target.value);
-    };
-    
-    const handleSubmit = (event) => {
+    const submitForm = (event) => {
         event.preventDefault();
-        console.log({ username, password, confirmPassword, tag });
+        signUp(data).then((resp)=>resp.json()).then(data=>console.log(data));
     };
 
     return (
@@ -44,22 +48,54 @@ const Signin = () => {
             <div className="flex-1 lg:h-screen lg:min-h-0 flex items-center justify-center p-8 bg-slate-50">
                 <form
                 className="bg-primary shadow-md rounded px-8 pt-6 pb-8 mb-4"
-                onSubmit={handleSubmit}
+                onSubmit={submitForm}
                 >
+                    <div className="mb-4 ">
+                        <label
+                            className="block text-gray-700 text-sm font-bold mb-2"
+                            htmlFor="firstname"
+                        >
+                            First Name
+                        </label>
+                        <input
+                            className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="firstname"
+                            type="text"
+                            placeholder="Enter your firstname"
+                            value={data.firstName}
+                            onChange={(e)=>handleChange(e,'firstname')}
+                        />
+                    </div>
                     <div className="mb-4 ">
                         <label
                             className="block text-gray-700 text-sm font-bold mb-2"
                             htmlFor="username"
                         >
-                            Username
+                            Last Name
                         </label>
                         <input
                             className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="username"
+                            id="lastname"
                             type="text"
-                            placeholder="Enter your username"
-                            value={username}
-                            onChange={handleUsernameChange}
+                            placeholder="Enter your lastname"
+                            value={data.lastName}
+                            onChange={(e)=>handleChange(e,'lastname')}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label
+                            className="block text-gray-700 text-sm font-bold mb-2"
+                            htmlFor="email"
+                        >
+                            Email
+                        </label>
+                        <input
+                            className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                            id="email"
+                            type="text"
+                            placeholder="Enter your email"
+                            value={data.email}
+                            onChange={(e)=>handleChange(e,'email')}
                         />
                     </div>
                     <div className="mb-4">
@@ -74,39 +110,23 @@ const Signin = () => {
                             id="password"
                             type="password"
                             placeholder="Enter your password"
-                            value={password}
-                            onChange={handlePasswordChange}
+                            value={data.password}
+                            onChange={(e)=>handleChange(e,'password')}
                         />
                     </div>
                     <div className="mb-4">
                         <label
                             className="block text-gray-700 text-sm font-bold mb-2"
-                            htmlFor="confirm-password"
+                            htmlFor="type"
                         >
-                            Confirm Password
-                        </label>
-                        <input
-                            className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="confirm-password"
-                            type="password"
-                            placeholder="Confirm your password"
-                            value={confirmPassword}
-                            onChange={handleConfirmPasswordChange}
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label
-                            className="block text-gray-700 text-sm font-bold mb-2"
-                            htmlFor="tag"
-                        >
-                            Tag
+                            Type
                         </label>
                         <div className="relative">
                             <select
                                 className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="tag"
-                                value={tag}
-                                onChange={handleTagChange}
+                                id="type"
+                                value={data.type}
+                                onChange={(e)=>handleChange(e,'type')}
                             >
                                 <option value="student">Student</option>
                                 <option value="prof">Professor</option>

@@ -1,24 +1,34 @@
 import {React, useState} from 'react'
 import {login} from '../assets'
+import {toast} from 'react-toastify';
+import { loginUser } from '../services/user-service';
 
 const Login = () => {
   
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-   
-    const handleUsernameChange = (event) => {
-      setUsername(event.target.value);
-    };
-   
-    const handlePasswordChange = (event) => {
-      setPassword(event.target.value);
-    };
+    const [loginDetail, setLoginDetail] = useState({
+        email:'',
+        password:'',
+    });
+
+    const handleChange = (event, field) => {
+        let actualValue = event.target.value
+        setLoginDetail({
+            ...loginDetail,
+            [field]: actualValue
+        })
+    }
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        if(loginDetail.username.trim=='' || loginDetail.password.trim==''){
+            toast.error("Username or Password is required !!")
+            return;
+        }
+    }
+
+    loginUser(loginDetail).then()
 
    
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log({ username, password, tag });
-    };
   
     return (
     <>
@@ -34,22 +44,22 @@ const Login = () => {
             <div className="flex-1 lg:h-screen lg:min-h-0 flex items-center justify-center p-8 bg-slate-50">
                 <form
                     className="bg-primary shadow-md rounded px-8 pt-6 pb-8 mb-4"
-                    onSubmit={handleSubmit}
+                    onSubmit={handleFormSubmit}
                 >
                     <div className="mb-4 ">
                         <label
                         className="block text-gray-700 text-sm font-bold mb-2"
-                        htmlFor="username"
+                        htmlFor="email"
                         >
-                        Username
+                        Email
                         </label>
                         <input
                         className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="username"
+                        id="email"
                         type="text"
-                        placeholder="Enter your username"
-                        value={username}
-                        onChange={handleUsernameChange}
+                        placeholder="Enter your email"
+                        value={loginDetail.email}
+                        onChange={(e)=>handleChange(e, 'email')}
                         />
                     </div>
                     <div className="mb-4">
@@ -64,8 +74,8 @@ const Login = () => {
                             id="password"
                             type="password"
                             placeholder="Enter your password"
-                            value={password}
-                            onChange={handlePasswordChange}
+                            value={loginDetail.password}
+                            onChange={(e)=>handleChange(e, 'password')}
                         />
                     </div>
                     <div className="flex items-center justify-between">
