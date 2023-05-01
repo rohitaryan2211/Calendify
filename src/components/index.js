@@ -12,6 +12,7 @@ import Profile from "./Profile";
 import DashboardCalendar from "./DashboardCalendar";
 import ChangePassword from "./ChangePassword";
 import CloseAccount from "./CloseAccount";
+import Login from "./Login";
 
 export{
     Calendar,
@@ -28,4 +29,6 @@ export{
     DashboardCalendar,
     ChangePassword,
     CloseAccount,
+    Login,
+    
 };

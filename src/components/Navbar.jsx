@@ -14,6 +14,9 @@ const Navbar = () => {
 
 
   return (
+    
+    
+    
     <nav className='w-full flex mt-3 mb-3 justify-between items-center navbar'>
 
       <Link to={`/`}>

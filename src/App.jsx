@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './style'
-import { Navbar, Home, Availability, Profile, AccountSettings, Logout } from './components';
+import { Navbar, Home, Availability, Profile, AccountSettings, Logout, Login} from './components';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
       </div>
 
       <Routes>
+        <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/availability' element={<Availability/>}/>
         <Route path='/profile' element={<Profile/>}/>

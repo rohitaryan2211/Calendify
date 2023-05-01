@@ -16,11 +16,11 @@ const Profile = () => {
             <div className=" py-10 md:justify-start mx-auto pb-40">
           <div className="mb-2 ">
             <div>
-                <label className="text-gray-700 font-bold mb-2 mr-14">Old Password:</label>
+                <label className="text-gray-700 font-bold mb-2 mr-14">Name:</label>
                 <label htmlFor="name" className="text-gray-700 font-bold mb-2 mr-14"></label>
             </div>
             <div>
-                <label htmlFor="email" className="text-gray-700 font-bold mb-2 mr-12">New Password:</label>
+                <label htmlFor="email" className="text-gray-700 font-bold mb-2 mr-12">Email:</label>
             </div>
           </div>
 
