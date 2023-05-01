@@ -5,6 +5,7 @@ import hammenu from './bars-solid.svg';
 import circle from './circle-regular.svg';
 import usersol from './user-solid.svg'; 
 import close from './xmark-solid.svg';
+import topic from './file-solid.svg';
 
 export{
     logo1,
@@ -14,4 +15,5 @@ export{
     circle,
     usersol,
     close,
+    topic,
 };

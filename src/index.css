@@ -29,7 +29,13 @@
 }
 
 .tabs {
-  display: flex-start;
+  display: flex;
+  justify-content: start;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-between;
 }
 
 .content {

@@ -8,11 +8,10 @@ import Home from "./Home";
 import AccountSettings from "./AccountSettings";
 import Availability from "./Availability";
 import Logout from "./Logout";
-import Preferences from "./Preferences";
 import Profile from "./Profile";
-import DashboardSchedule from "./DashboardSchedule";
 import DashboardCalendar from "./DashboardCalendar";
-import ScheduleCard from "./ScheduleCard";
+import ChangePassword from "./ChangePassword";
+import CloseAccount from "./CloseAccount";
 
 export{
     Calendar,
@@ -25,10 +24,8 @@ export{
     AccountSettings,
     Availability,
     Logout,
-    Preferences,
     Profile,
-    DashboardSchedule,
     DashboardCalendar,
-    ScheduleCard,
-    
+    ChangePassword,
+    CloseAccount,
 };

@@ -1,35 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
-import {DashboardCalendar, DashboardSchedule} from '../components';
+import {DashboardCalendar} from '../components';
 import styles from '../style'
-import {titles} from '../constants'
 
-function TabGroup() {
 
-  const [currentTab, setCurrentTab] = useState('1');
-  const handleTabClick = (e) => {
-    setCurrentTab(e.target.id);
-  }
 
-  return (
-    <>
-      <div className='tabs bg-title_gray'>
-        {titles.map((tab, i) =>
-          <button key={i} className='py-3 px-3 text-lg' id={tab.id}  disabled={currentTab === `${tab.id}`} onClick={(handleTabClick)}>{tab.tabTitle}</button>
-        )}
-      </div>
-      <div className='content'>
-                {titles.map((tab, i) =>
-                    <div key={i}>
-                        {currentTab === `${tab.id}` && <div>
-                          {tab.id === 1 ? <DashboardSchedule/> : <DashboardCalendar/>}
-                        </div>}
-                    </div>
-                )}
-            </div>
-    </>
-  );
-}
 
 const Home = () => {
   return (
@@ -41,7 +15,9 @@ const Home = () => {
       </div>
       <div className={`${styles.paddingX} ${styles.flexCenter} bg-title_gray pb-10`}>
         <div className={`${styles.boxWidth} mt-4 ml-2 font-barlow text-lg text-black `}>
-          <TabGroup/>
+          <div className='bg-white pt-5 pb-20 mb-20 px-5 min-h-full'>
+            <DashboardCalendar/>
+          </div>
         </div>
       </div>
     </div>
