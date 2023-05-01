@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import styles from './style'
-import { Navbar, Home, Availability, Profile, AccountSettings, Logout, Login} from './components';
+import { Navbar, Home, Availability, Profile, AccountSettings, Logout, Login, Signin} from './components';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -8,16 +7,11 @@ function App() {
 
   return (
     <>
-      <div className='bg-primary w-full overflow-hidden'>
-        <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-          <div className={`${styles.boxWidth}`}>
-            <Navbar />
-          </div>
-        </div>
-      </div>
-
+      
+      <Navbar />
       <Routes>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/signin' element={<Signin/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/availability' element={<Availability/>}/>
         <Route path='/profile' element={<Profile/>}/>
