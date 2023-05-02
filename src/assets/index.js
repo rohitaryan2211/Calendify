@@ -7,6 +7,7 @@ import usersol from './user-solid.svg';
 import close from './xmark-solid.svg';
 import topic from './file-solid.svg';
 import login from './login.png';
+import search from './magnifying-glass-solid.svg';
 
 export{
     logo1,
@@ -18,4 +19,5 @@ export{
     close,
     topic,
     login,
+    search,
 };

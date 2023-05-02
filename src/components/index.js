@@ -1,9 +1,4 @@
 import Navbar from "./Navbar";
-import Titlebar from "./Titlebar";
-import MeetingCard from "./MeetingCard";
-import SchedulerCard from "./SchedulerCard";
-import Notifications from "./Notifications";
-import Calendar from "./Calendar";
 import Home from "./Home";
 import AccountSettings from "./AccountSettings";
 import Availability from "./Availability";
@@ -14,14 +9,10 @@ import ChangePassword from "./ChangePassword";
 import CloseAccount from "./CloseAccount";
 import Login from "./Login";
 import Signin from "./Signin";
+import AvailCalendar from "./AvailCalendar";
 
 export{
-    Calendar,
-    MeetingCard,
     Navbar,
-    Notifications,
-    SchedulerCard,
-    Titlebar,
     Home,
     AccountSettings,
     Availability,
@@ -32,5 +23,6 @@ export{
     CloseAccount,
     Login,
     Signin,
+    AvailCalendar,
 
 };

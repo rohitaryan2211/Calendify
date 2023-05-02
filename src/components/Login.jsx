@@ -20,14 +20,19 @@ const Login = () => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        if(loginDetail.username.trim=='' || loginDetail.password.trim==''){
-            toast.error("Username or Password is required !!")
-            return;
-        }
+        const requestOptions = {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept':'application/json',
+            },
+            body: JSON.stringify(loginDetail)
+        };
+        fetch('http://localhost:8080/api/employees', requestOptions)
+        .then(response => response.json())
+        .then(res => console.log(res));
+        
     }
-
-    loginUser(loginDetail).then()
-
    
   
     return (
@@ -86,6 +91,7 @@ const Login = () => {
                             Log in
                         </button>
                     </div>
+                    
                 </form>
             </div>
         </div>

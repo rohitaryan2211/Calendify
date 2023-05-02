@@ -20,7 +20,7 @@ const ChangePassword = () => {
                 <input type="password" id="confirm-password" name="confirm-password" className="border border-gray-400 py-2 px-3 rounded-lg w-1/2 mb-2 bg-white"/>    
             </div>    
             <div>
-                <button className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded mt-4 w-1/4">
+                <button className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded mt-4 w-50">
                 Change Password
                 </button>
             </div>

@@ -15,15 +15,15 @@ const Signin = () => {
     })
 
     useEffect(()=>{
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        };
-        fetch('http://localhost:8080/api/v1/auth/register', requestOptions)
-        .then(response => response.json())
-        .then(data => console.log(data));
-    },[data])
+        // const requestOptions = {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(data)
+        // };
+        // fetch('http://localhost:8080/api/v1/auth/register', requestOptions)
+        // .then(response => response.json())
+        // .then(data => console.log(data));
+    },[])
 
     const handleChange=(event, property)=>{
         setData({...data, [property]:event.target.value});
@@ -31,7 +31,16 @@ const Signin = () => {
     
     const submitForm = (event) => {
         event.preventDefault();
-        signUp(data).then((resp)=>resp.json()).then(data=>console.log(data));
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:5173',
+                    'Access-Control-Allow-Credentials': 'true' },
+            body: JSON.stringify(data)
+        };
+        fetch('http://localhost:8080/api/employees', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data));
     };
 
     return (
@@ -53,33 +62,34 @@ const Signin = () => {
                     <div className="mb-4 ">
                         <label
                             className="block text-gray-700 text-sm font-bold mb-2"
-                            htmlFor="firstname"
+                            htmlFor="firstName"
                         >
                             First Name
                         </label>
                         <input
                             className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="firstname"
+                            id="firstName"
                             type="text"
                             placeholder="Enter your firstname"
                             value={data.firstName}
-                            onChange={(e)=>handleChange(e,'firstname')}
+                            onChange={(e)=>handleChange(e,'firstName')}
+
                         />
                     </div>
                     <div className="mb-4 ">
                         <label
                             className="block text-gray-700 text-sm font-bold mb-2"
-                            htmlFor="username"
+                            htmlFor="lastName"
                         >
                             Last Name
                         </label>
                         <input
                             className="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="lastname"
+                            id="lastName"
                             type="text"
                             placeholder="Enter your lastname"
                             value={data.lastName}
-                            onChange={(e)=>handleChange(e,'lastname')}
+                            onChange={(e)=>handleChange(e,'lastName')}
                         />
                     </div>
                     <div className="mb-4">

@@ -15,12 +15,17 @@ const Profile = () => {
             <div className='bg-white pt-5 pb-20 mb-20 px-5 min-h-full'>
             <div className=" py-10 md:justify-start mx-auto pb-40">
           <div className="mb-2 ">
-            <div>
-                <label className="text-gray-700 font-bold mb-2 mr-14">Name:</label>
-                <label htmlFor="name" className="text-gray-700 font-bold mb-2 mr-14"></label>
+            <div className='mb-5'>
+                <label className="text-gray-700 font-bold mb-2 mr-14">First Name:</label>
+                <label htmlFor="name" className="text-secondary font-bold mb-2 mr-14">Rohit</label>
             </div>
-            <div>
-                <label htmlFor="email" className="text-gray-700 font-bold mb-2 mr-12">Email:</label>
+            <div className='mb-5'>
+                <label className="text-gray-700 font-bold mb-2 mr-14">Last Name:</label>
+                <label htmlFor="name" className="text-secondary font-bold mb-2 mr-14">Aryan</label>
+            </div>
+            <div className='mb-5'>
+                <label htmlFor="email" className="text-gray-700 font-bold mb-2 mr-20">Email:</label>
+                <label htmlFor="name" className="text-secondary font-bold mb-2 ml-4 mr-14">rohitaryan2211@gmail.com</label>
             </div>
           </div>
 
